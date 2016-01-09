@@ -11,10 +11,10 @@ public class SpawnController : MonoBehaviour {
 
 	//public Transform[] spawnPointsCoin; //Coin
 
-	public GameObject[] coins; //Coin
+	public GameObject coin; //Coin
 
 
-	private float spawnTime = 1.5f; //Coin
+	private float spawnTime = 5.0f; //Coin
 
 
 
@@ -22,6 +22,7 @@ public class SpawnController : MonoBehaviour {
 	private int randomVehicleNumber;
 	private int randomSpawnPointNumber;
 	private Vector3 lookingdirection;
+	private Vector3 coinSpawn;
 
 	void Start()
 	{
@@ -36,12 +37,13 @@ public class SpawnController : MonoBehaviour {
 	}
 
 	void SpawnCoins() //Coin
+
 	{
 		int spawnIndex = Random.Range (0, spawnPoints.Length);
-		int objectIndex = Random.Range (0, coins.Length);
+		coinSpawn = new Vector3 (spawnPoints [spawnIndex].transform.position.x, coin.transform.position.y, spawnPoints [spawnIndex].transform.position.z);
 
-		Instantiate (coins[objectIndex], spawnPoints[spawnIndex].transform.position, spawnPoints[spawnIndex].transform.rotation);
-		
+		Instantiate (coin,coinSpawn,Quaternion.identity);
+
 	}
 
 

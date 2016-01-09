@@ -32,13 +32,14 @@ public class PlayerMoveController : MonoBehaviour {
 	{
 		print (col.gameObject.tag);
 		
-		if (col.gameObject.tag == "Bordstein") 
-		{
-			controller.SendMessage("FinishGame");
+		if (col.gameObject.tag == "Bordstein") {
+			controller.SendMessage ("FinishGame");
+		} else if (col.gameObject.tag == "Coin")
+		{ //Coin
+			Destroy (col.gameObject); //Coin
+			controller.SendMessage("AddToScore", 100);
 		}
-		else if (col.gameObject.tag == "Coin") //Coin
-		{
-			DestroyCoins(col.gameObject); //Coin
+
 
 		
 	

@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
 		restartButton.gameObject.SetActive(false);
 	}
 
-	void Update () 
+	void FixedUpdate () 
 	{
 		if (isRunning)
 		{
@@ -47,5 +47,11 @@ public class GameController : MonoBehaviour
 	void RestartGame() 
 	{
 		Application.LoadLevel ("playing");
+	}
+
+	void AddToScore(int amount)
+	{
+		score += amount;
+		SetScore();
 	}
 }
